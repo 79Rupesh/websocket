@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rupesh</title>
+</head>
+
+<body>
+    <h2>Live Chat</h2>
+    <input id="message" type="text" . placeholder="Type Message">
+    <button onclick="sendMessage()">Send</button>
+
+    <p id="output"></p>
+    <script>
+
+        const socket = new WebSocket("ws://127.0.0.1:8000/ws")
+        socket.onmessage = function (event) {
+            document.getElementById("output").innerText = event.data
+        }
+
+        function sendMessage() {
+            const message = document.getElementById("message").value
+            socket.send(message)
+        }
+    </script>
+</body>
+
+</html>
