@@ -1,36 +1,49 @@
-from fastapi import FastAPI , WebSocket
+from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 
 app = FastAPI()
-connected_user = []
+
+connected_users = []
+
 
 @app.websocket("/ws")
-
-async def websocket_endpoint(websocket:WebSocket):
+async def websocket_endpoint(websocket: WebSocket):
 
     await websocket.accept()
 
-    connected_user.append(websocket)
+    connected_users.append(websocket)
 
     username = await websocket.receive_text()
 
-    for user in connected_user:
+    for user in connected_users:
         await user.send_text(
             f"{username} joined the chat"
         )
 
-    while True:
-        message = await websocket.receive_text()
+    for user in connected_users:
+        await user.send_text(
+            f"Online users: {len(connected_users)}"
+        )
 
-        for user in connected_user:
+    try:
+        while True:
 
+            message = await websocket.receive_text()
+
+            for user in connected_users:
+                await user.send_text(
+                    f"{username}: {message}"
+                )
+
+    except WebSocketDisconnect:
+
+        connected_users.remove(websocket)
+
+        for user in connected_users:
             await user.send_text(
-                f"server received : {message}"
+                f"{username} left the chat"
             )
 
-        online_users = len(connected_user)
-
-        for user in connected_user:
+        for user in connected_users:
             await user.send_text(
-                f"online users: {online_users}"
+                f"Online users: {len(connected_users)}"
             )
-
