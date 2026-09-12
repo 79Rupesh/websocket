@@ -104,15 +104,15 @@
 
 
 
-try:
-    a=10
-    b=2
-    result = a/b
+# try:
+#     a=10
+#     b=2
+#     result = a/b
 
-except:
-    print("Somrthong went wrong")
-else:
-    print("Division succefully")
-    print(result)
-finally:
-    print("mai humesha chaluga")
+# except:
+#     print("Somrthong went wrong")
+# else:
+#     print("Division succefully")
+#     print(result)
+# finally:
+#     print("mai humesha chaluga")
