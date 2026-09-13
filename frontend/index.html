@@ -2,22 +2,84 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rupesh</title>
+
+    <title>Live Chat</title>
+
+    <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-    <h2>Live Chat</h2>
+    <div class="chat-container">
 
-    <input id="username" type="text" placeholder="Enter username">
+        <!-- Header -->
 
-    <input id="message" type="text" placeholder="Type Message">
+        <div class="chat-header">
 
-    <button onclick="sendMessage()">Send</button>
+            <h2>💬 Live Chat</h2>
 
-    <p id="output"></p>
+            <div class="online">
+                🟢 Online Users:
+                <span id="onlineUsers">0</span>
+            </div>
+
+        </div>
+
+
+        <!-- Username -->
+
+        <div class="user-section">
+
+            <input id="username" type="text" placeholder="Enter username">
+
+            <button id="connectButton" onclick="connect()">
+                Connect
+            </button>
+
+        </div>
+
+
+        <!-- Chat Messages -->
+
+        <div id="output" class="chat-area">
+
+        </div>
+
+
+        <!-- Message -->
+
+        <div class="message-section">
+
+            <input id="message" type="text" placeholder="Type message..." disabled>
+
+            <button id="sendButton" onclick="sendMessage()" disabled>
+                Send
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="chat-header">
+
+        <h2>💬 Live Chat</h2>
+
+        <div id="status" class="status disconnected">
+            🔴 Disconnected
+        </div>
+
+        <div class="online">
+            🟢 Online Users:
+            <span id="onlineUsers">0</span>
+        </div>
+
+    </div>
+
 
     <script src="script.js"></script>
 
