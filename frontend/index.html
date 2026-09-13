@@ -13,15 +13,23 @@
 
 </head>
 
+
 <body>
 
     <div class="chat-container">
 
-        <!-- Header -->
+
+        <!-- =========================
+             Header
+        ========================== -->
 
         <div class="chat-header">
 
             <h2>💬 Live Chat</h2>
+
+            <div id="status" class="status disconnected">
+                🔴 Disconnected
+            </div>
 
             <div class="online">
                 🟢 Online Users:
@@ -31,57 +39,71 @@
         </div>
 
 
-        <!-- Username -->
+        <!-- =========================
+             Username Section
+        ========================== -->
 
         <div class="user-section">
 
-            <input id="username" type="text" placeholder="Enter username">
+            <input
+                id="username"
+                type="text"
+                placeholder="Enter username"
+            >
 
-            <button id="connectButton" onclick="connect()">
+            <button
+                id="connectButton"
+                onclick="connect()"
+            >
                 Connect
             </button>
 
         </div>
 
 
-        <!-- Chat Messages -->
+        <!-- =========================
+             Chat Area
+        ========================== -->
 
-        <div id="output" class="chat-area">
+        <div
+            id="output"
+            class="chat-area"
+        >
 
         </div>
 
 
-        <!-- Message -->
+        <!-- =========================
+             Message Section
+        ========================== -->
 
         <div class="message-section">
 
-            <input id="message" type="text" placeholder="Type message..." disabled>
+            <input
+                id="message"
+                type="text"
+                placeholder="Type message..."
+                disabled
+            >
 
-            <button id="sendButton" onclick="sendMessage()" disabled>
+            <button
+                id="sendButton"
+                onclick="sendMessage()"
+                disabled
+            >
                 Send
             </button>
 
         </div>
 
-    </div>
-
-    <div class="chat-header">
-
-        <h2>💬 Live Chat</h2>
-
-        <div id="status" class="status disconnected">
-            🔴 Disconnected
-        </div>
-
-        <div class="online">
-            🟢 Online Users:
-            <span id="onlineUsers">0</span>
-        </div>
 
     </div>
 
+
+    <!-- JavaScript -->
 
     <script src="script.js"></script>
+
 
 </body>
 

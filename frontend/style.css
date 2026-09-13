@@ -30,8 +30,7 @@ body {
 .chat-header {
     background: #2563eb;
     color: white;
-
-    padding: 20px;
+    padding: 18px;
     text-align: center;
 }
 
@@ -39,8 +38,21 @@ body {
     margin-bottom: 8px;
 }
 
+.status {
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+
+.status.connected {
+    color: #bbf7d0;
+}
+
+.status.disconnected {
+    color: #fecaca;
+}
+
 .online {
-    font-size: 14px;
+    font-size: 13px;
 }
 
 /* User section */

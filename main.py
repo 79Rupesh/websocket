@@ -23,6 +23,12 @@ async def websocket_endpoint(websocket: WebSocket):
 
     print("username : ", username)
 
+    # Check username
+
+    if username.strip() == "":
+        await websocket.close()
+        return
+
     # join notification
 
     join_data = {
@@ -45,7 +51,7 @@ async def websocket_endpoint(websocket: WebSocket):
 
     for user in connected_users:
         await user.send_text(
-           json.dumps(online_data)
+        json.dumps(online_data)
         )
 
     try:
